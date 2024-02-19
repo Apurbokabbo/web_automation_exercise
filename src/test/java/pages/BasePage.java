@@ -17,14 +17,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariDriver.WindowType;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
-
 import io.qameta.allure.Allure;
 
 public class BasePage {
 	
 	public String BASE_URL ="https://automationexercise.com/";
+	public By a = By.id("");
+	public By PAGE_TOP_BUTTON = By.xpath("//body/a[@id='scrollUp']/i[1]");
+	public By b = By.xpath("");
 	
 	
 	
@@ -308,6 +312,19 @@ public class BasePage {
 	public void takeScreenShotAllureAttach(String screenshotname) {
 		Allure.addAttachment(screenshotname, new ByteArrayInputStream(((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES)));
 		
+	}
+	
+	
+public  void waitForVisibilityOfElement(By locator, int timeoutInSeconds) {
+		
+		WebDriverWait wait = new WebDriverWait(null, timeoutInSeconds);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+
+	public  void waitForElementToBeClickable(By locator, int timeoutInSeconds) {
+		
+		WebDriverWait wait = new WebDriverWait(null,timeoutInSeconds);
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 	
 

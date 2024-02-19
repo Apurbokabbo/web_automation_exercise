@@ -1,7 +1,5 @@
 package utilities;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -12,7 +10,8 @@ import org.testng.annotations.BeforeMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseDriver {
-	private static String browserName = System.getProperty("browser", "chorom");
+	
+	private static String browserName = System.getProperty("browser", "firefox");
 	private static final ThreadLocal<WebDriver> lOCAL_DRIVER = new ThreadLocal<WebDriver>();
 	
 	public static void setDriver(WebDriver driver)
