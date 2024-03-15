@@ -6,6 +6,8 @@ public class LoginSignupPage extends BasePage{
 	
 	public String  LOGIN_PAGE_URL = "https://automationexercise.com/login";
 	public String  LOGIN_PART_TITTLE_TEXT= "Login to your account";
+	public String  EMAIL_INPUT_FIELD_PLACEHOLDER_TEXT= "Email Address";
+	public String  NAME_INPUT_FIELD_PLACEHOLDER_TEXT= "Name";
 	public String  SIGN_UP_PART_TEXT = "New User Signup!";
 	public String  SIGN_UP_INFORMATION_PAGE_TITTLE_TEXT= "Enter Account Information";
 	public String  SIGN_UP_TITTLE_LABEL_TEXT= "Title";
@@ -38,7 +40,7 @@ public class LoginSignupPage extends BasePage{
 	public By LOGIN_BUTTON = By.xpath("//button[contains(text(),'Login')]");	
 	public By SIGN_UP_BUTTON = By.xpath("//button[contains(text(),'Signup')]");
 	//public By a = By.id("");
-	public By LOGIN_EMAIL_ADDRESS_INPUT_FIELD = By.xpath("//body/section[@id='form']/div[1]/div[1]/div[1]/div[1]/form[1]/input[2]");                                                                                                
+	public By LOGIN_EMAIL_ADDRESS_INPUT_FIELD = By.xpath("//body/section[@id='form']/div[1]/div[1]/div[1]/div[1]/form[1]/input[2]"); //                                                                                               
 	public By LOGIN_PASSWORD_INPUT_FIELD = By.xpath("//body/section[@id='form']/div[1]/div[1]/div[1]/div[1]/form[1]/input[3]");                                                                                                
 	public By LOGIN_PART_TITTLE_TEXT_LOCATOR = By.xpath("//h2[contains(text(),'Login to your account')]");                                                                                                
 	public By SIGN_UP_PART_TEXT_LOCATOR = By.xpath("//h2[contains(text(),'New User Signup!')]");                                                                                                
@@ -90,5 +92,21 @@ public class LoginSignupPage extends BasePage{
 	public By SIGN_UP_SUCCESFULLY_PAGE_SUB_TITTLE_1 = By.xpath("//p[contains(text(),'Congratulations! Your new account has been success')]");                                                                                                
 	public By SIGN_UP_SUCCESFULLY_PAGE_SUB_TITTLE_LINE_2 = By.xpath("//p[contains(text(),'You can now take advantage of member privileges to')]");                                                                                                
 	public By SIGN_UP_SUCCESFULLY_PAGE_CONTINUE_BUTTON = By.xpath("//a[contains(text(),'Continue')]");                                                                                                
-	public By SIGN_UP_SUCCESFULLY_PAGE = By.xpath("");                                                                                                
+	public By SIGN_UP_SUCCESFULLY_PAGE = By.xpath(""); 
+	
+	
+	
+	public void loginWithValidData(String userName, String password) {
+		
+		waitForVisibilityOfElement(LOGIN_EMAIL_ADDRESS_INPUT_FIELD, 4);
+		findElement(LOGIN_EMAIL_ADDRESS_INPUT_FIELD).sendKeys(userName);
+		findElement(LOGIN_PASSWORD_INPUT_FIELD).sendKeys(password);
+		findElement(LOGIN_BUTTON).click();
+		
+	}
+	
+	
+	
+	
+	
 }
